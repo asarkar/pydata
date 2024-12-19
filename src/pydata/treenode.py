@@ -2,9 +2,12 @@ from __future__ import annotations
 
 from collections import deque
 from collections.abc import Iterator, Sequence
+from typing import Generic, TypeVar
+
+T = TypeVar("T")
 
 
-class TreeNode:
+class TreeNode(Generic[T]):
     """
     Binary Tree
 
@@ -12,12 +15,12 @@ class TreeNode:
     The tree is traversed in level-order.
     """
 
-    def __init__(self, val: int) -> None:
+    def __init__(self, val: T) -> None:
         self.val = val
-        self.left: TreeNode | None = None
-        self.right: TreeNode | None = None
-        self._level: deque[TreeNode | None] = deque()
-        self._next_level: deque[TreeNode | None] = deque()
+        self.left: TreeNode[T] | None = None
+        self.right: TreeNode[T] | None = None
+        self._level: deque[TreeNode[T] | None] = deque()
+        self._next_level: deque[TreeNode[T] | None] = deque()
 
     def __repr__(self) -> str:
         return str(self.val)
@@ -26,11 +29,11 @@ class TreeNode:
         lines = TreeNode._build_tree_string(self, 0, False, "-")[0]
         return "\n" + "\n".join(line.rstrip() for line in lines)
 
-    def __iter__(self) -> Iterator[int | None]:
+    def __iter__(self) -> Iterator[T | None]:
         self._level.append(self)
         return self
 
-    def __next__(self) -> int | None:
+    def __next__(self) -> T | None:
         if not self._level:
             raise StopIteration
         node = self._level.popleft()
@@ -46,7 +49,7 @@ class TreeNode:
         return node if node is None else node.val
 
     @staticmethod
-    def from_seq(nums: Sequence[int | None]) -> TreeNode | None:
+    def from_seq(nums: Sequence[T | None]) -> TreeNode[T] | None:
         """Build a Binary Tree in level order.
         The idea is to take two numbers and associate with the
         first non-null parent that hasn't been looked at.
@@ -54,7 +57,7 @@ class TreeNode:
         :param nums: node values, could be None
         """
 
-        queue: deque[TreeNode] = deque()
+        queue: deque[TreeNode[T]] = deque()
         root = None
         if nums and nums[0] is not None:
             root = TreeNode(nums[0])
@@ -81,7 +84,7 @@ class TreeNode:
     # Copied from binarytree.Node https://pypi.org/project/binarytree/
     @staticmethod
     def _build_tree_string(
-        node: TreeNode | None,
+        node: TreeNode[T] | None,
         curr_index: int,
         include_index: bool = False,
         delimiter: str = "-",
