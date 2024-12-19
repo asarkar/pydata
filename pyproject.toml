@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pydata"
+version = "1.0.0"
+authors = [
+    {"name" = "Abhijit Sarkar", "email" = "contact@asarkar.com"},
+]
+description = "Python Data Structures: Linked List, and Binary Tree"
+readme = "README.md"
+requires-python = ">= 3.12"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+lint = [
+    "ruff",
+    "mypy",
+]
+dev = [
+    "pydata[test,lint]",
+]
+
+[project.urls]
+Source = "https://github.com/asarkar/pydata"
+Tracker = "https://github.com/asarkar/pydata/issues"
+
+[tool.mypy]
+# https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-exclude
+exclude = [
+    'venv',
+]
+ignore_errors = 'False'
+warn_return_any = true
+disallow_untyped_defs = true
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
