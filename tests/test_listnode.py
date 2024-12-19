@@ -2,7 +2,7 @@ import random
 
 import pytest
 
-from pydata import ListNode  # type: ignore[import-untyped]
+from src.pydata import ListNode
 
 
 @pytest.mark.parametrize(

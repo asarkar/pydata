@@ -1,6 +1,6 @@
 import pytest
 
-from pydata import TreeNode  # type: ignore[import-untyped]
+from src.pydata import TreeNode
 
 
 @pytest.mark.parametrize(

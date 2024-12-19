@@ -7,11 +7,11 @@ Meant to be used in personal projects only, and makes absolutely no guarantees.
 ## Development
 
 ```
-pydata% ./venv/bin/python -m --upgrade pip
+pydata% ./venv/bin/python -m pip install --upgrade pip
 
 pydata% ./venv/bin/python -m pip install -e '.[dev]' wheel
 
-pydata% ./venv/bin/python -m pip wheel --no-binary ":all:" --wheel-dir=dist -e  .
+pydata% ./venv/bin/python -m pip wheel --no-binary pydata --wheel-dir=dist -e .
 
 ```
 
