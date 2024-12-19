@@ -9,9 +9,7 @@ Meant to be used in personal projects only, and makes absolutely no guarantees.
 ```
 pydata% $(brew --prefix python)/bin/python3 -m venv ./venv
 
-pydata% ./venv/bin/python -m pip install --upgrade pip wheel '.[test]' '.[lint]'
-
-pydata% ./venv/bin/python -m pip wheel . --wheel-dir=dist
+pydata% ./venv/bin/python -m pip install --upgrade pip '.[test]' '.[lint]'
 ```
 
 ## Running tests
