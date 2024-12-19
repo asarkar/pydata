@@ -7,17 +7,16 @@ Meant to be used in personal projects only, and makes absolutely no guarantees.
 ## Development
 
 ```
-pydata% ./venv/bin/python -m pip install --upgrade pip
+pydata% $(brew --prefix python)/bin/python3 -m venv ./venv
 
-pydata% ./venv/bin/python -m pip install -e '.[dev]' wheel
+pydata% ./venv/bin/python -m pip install --upgrade pip wheel '.[test]' '.[lint]'
 
-pydata% ./venv/bin/python -m pip wheel --no-binary pydata --wheel-dir=dist -e .
-
+pydata% ./venv/bin/python -m pip wheel . --wheel-dir=dist
 ```
 
 ## Running tests
 ```
-./.github/run.sh <directory>
+./.github/run.sh
 ```
 
 ## License

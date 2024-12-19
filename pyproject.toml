@@ -5,9 +5,6 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pydata"
 version = "1.0.0"
-authors = [
-    {"name" = "Abhijit Sarkar", "email" = "contact@asarkar.com"},
-]
 description = "Python Data Structures: Linked List, and Binary Tree"
 readme = "README.md"
 requires-python = ">= 3.12"
@@ -26,20 +23,16 @@ lint = [
     "ruff",
     "mypy",
 ]
-dev = [
-    "pydata[test,lint]",
-]
 
 [project.urls]
 Source = "https://github.com/asarkar/pydata"
-Tracker = "https://github.com/asarkar/pydata/issues"
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-exclude
 exclude = [
     'venv',
 ]
-ignore_errors = 'False'
+ignore_errors = false
 warn_return_any = true
 disallow_untyped_defs = true
 
