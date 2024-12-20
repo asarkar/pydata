@@ -21,6 +21,8 @@ class TreeNode(Generic[T]):
         self.right: TreeNode[T] | None = None
         self._level: deque[TreeNode[T] | None] = deque()
         self._next_level: deque[TreeNode[T] | None] = deque()
+        self._level_cnt: int = 1
+        self._next_level_cnt: int = 0
 
     def __repr__(self) -> str:
         return str(self.val)
@@ -34,17 +36,17 @@ class TreeNode(Generic[T]):
         return self
 
     def __next__(self) -> T | None:
-        if not self._level:
+        if self._level_cnt == self._next_level_cnt == 0:
             raise StopIteration
         node = self._level.popleft()
         if node is not None:
-            self._next_level.extend([node.left, node.right])
+            self._level_cnt -= 1
+            for child in node.left, node.right:
+                self._next_level_cnt += int(child is not None)
+                self._next_level.append(child)
         if not self._level:
-            while self._next_level and self._next_level[-1] is None:
-                self._next_level.pop()
-            nxt = self._next_level
-            self._next_level = self._level
-            self._level = nxt
+            self._level, self._next_level = self._next_level, self._level
+            self._level_cnt, self._next_level_cnt = self._next_level_cnt, 0
 
         return node if node is None else node.val
 

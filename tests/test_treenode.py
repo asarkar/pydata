@@ -11,6 +11,7 @@ from src.pydata import TreeNode
         [1, 2],
         [1, 2, 3],
         [1, None, 2],
+        [1, 2, None, 3],
         [4, 2, 5, 1, 3],
         [3, 1, 4, None, 2],
         [1, 3, 2, 5, 3, None, 9],
