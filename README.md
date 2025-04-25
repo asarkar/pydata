@@ -12,6 +12,28 @@ pydata% $(brew --prefix python)/bin/python3 -m venv ./venv
 pydata% ./venv/bin/python -m pip install --upgrade pip '.[test]' '.[lint]'
 ```
 
+## Usage
+
+* [ListNode](src/pydata/listnode.py)
+
+```
+nums = [1, 2, 3]
+head = ListNode.from_iterable(nums)
+assert head is not None and list(head) == nums
+```
+* [TreeNode](src/pydata/treenode.py)
+
+```
+nums = [1, 2, 3]
+root = TreeNode.from_seq(nums)
+assert root is not None and list(root) == nums
+
+print(str(root))
+  1
+ / \
+2   3
+```
+
 ## Running tests
 ```
 ./.github/run.sh
