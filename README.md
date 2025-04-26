@@ -1,5 +1,8 @@
 # Python Data Structures
-Simple package containing fundamental data structures used in coding questions. 
+Python Package containing simple data structures used in data structure and algorithm questions 
+found on online platform such as LeetCode. This package can be used while working on such
+questions locally.
+
 Meant to be used in personal projects only, and makes absolutely no guarantees.
 
 [![](https://github.com/asarkar/pydata/workflows/CI/badge.svg)](https://github.com/asarkar/pydata/actions)
