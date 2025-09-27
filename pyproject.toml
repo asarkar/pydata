@@ -7,7 +7,7 @@ name = "pydata"
 version = "1.0.0"
 description = "Python Data Structures: Linked List, and Binary Tree"
 readme = "README.md"
-requires-python = ">= 3.12"
+requires-python = ">= 3.13"
 classifiers = [
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python",

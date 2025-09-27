@@ -2,12 +2,9 @@ from __future__ import annotations
 
 from collections import deque
 from collections.abc import Iterator, Sequence
-from typing import Generic, TypeVar
-
-T = TypeVar("T")
 
 
-class TreeNode(Generic[T]):
+class TreeNode[T = int]:
     """
     Binary Tree
 
